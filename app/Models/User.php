@@ -45,4 +45,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+    public function registrations()
+    {
+        return $this->belongsToMany(Event::class, 'event_user');
+    }
+
 }
