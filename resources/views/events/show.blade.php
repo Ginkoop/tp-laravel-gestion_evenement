@@ -5,7 +5,7 @@
 @section('content')
     <div class="card shadow-sm p-4">
         <h1 class="mb-3">{{ $event->title }}</h1>
-        <p class="text-muted">📅 {{ $event->date }} | 📍 {{ $event->location }}</p>
+        <p class="text-muted">📅 {{ date('d/m/Y H:i', strtotime($event->date)) }} | 📍 {{ $event->location }}</p>
         <p>{{ $event->description }}</p>
         <h3 class="mt-4">👥 Participants :</h3>
         @if ($event->participants->count() > 0)
