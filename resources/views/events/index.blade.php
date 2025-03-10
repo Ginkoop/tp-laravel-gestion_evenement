@@ -16,7 +16,8 @@
                         <h5 class="card-title">{{ $event->title }}</h5>
                         <p class="card-text">{{ Str::limit($event->description, 100) }}</p>
                         <p><strong>📍 Lieu :</strong> {{ $event->location }}</p>
-                        <p><strong>📅 Date :</strong> {{ $event->date }}</p>
+                        <p><strong>📅 Date :</strong> {{ date('d/m/Y H:i', strtotime($event->date)) }}</p>
+
                         <a href="{{ route('events.show', $event) }}" class="btn btn-info">Voir plus</a>
                     </div>
                 </div>
