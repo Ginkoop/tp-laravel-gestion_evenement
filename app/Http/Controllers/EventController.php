@@ -45,7 +45,9 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('events.show', compact('event'));
+        $isRegistered = $event->participants()->where('user_id', auth()->id())->exists();
+
+        return view('events.show', compact('event', 'isRegistered'));
     }
 
     public function register(Event $event)
